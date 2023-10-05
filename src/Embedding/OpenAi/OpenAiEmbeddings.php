@@ -58,7 +58,7 @@ class OpenAiEmbeddings implements EmbeddingInterface
     private function embed(string|array $inputs): array
     {
         $result = $this->openAi->embeddings()->embedding([
-            'inputs' => $inputs,
+            'input' => $inputs,
             'model' => $this->model
         ]);
 

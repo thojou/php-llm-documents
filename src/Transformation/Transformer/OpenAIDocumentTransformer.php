@@ -58,9 +58,11 @@ abstract class OpenAIDocumentTransformer implements DocumentTransformerInterface
                 ['role' => 'user', 'content' => $document->getPageContent()]
             ],
             'functions' => [
-                "name" => $this->getFunctionName(),
-                "description" => $this->getFunctionDescription(),
-                "parameters" => $this->functionParameters->toArray()
+                [
+                    "name" => $this->getFunctionName(),
+                    "description" => $this->getFunctionDescription(),
+                    "parameters" => $this->functionParameters->toArray()
+                ]
             ],
             'function_call' => ['name' => $this->getFunctionName()]
         ]);

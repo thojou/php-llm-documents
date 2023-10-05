@@ -59,6 +59,7 @@ class GeneralRequest implements RequestInterface
     {
         return [
             'Accept' => 'application/json',
+            'Content-Type' => 'multipart/form-data',
         ];
     }
 

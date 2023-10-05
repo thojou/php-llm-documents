@@ -44,7 +44,12 @@ class WebSearchLoader implements LoaderInterface
     public function load(string $resource): array
     {
         $searchEngine = $this->searchEngineFactory->create();
+
+        echo "Searching for \"$resource\"...\n";
+
         $results = $searchEngine->search($resource, $this->limit);
+
+        echo "Found " . count($results) . " results.\n";
 
         return array_map(
             $this->handleSearchResult(...),
@@ -57,9 +62,15 @@ class WebSearchLoader implements LoaderInterface
      */
     private function handleSearchResult(SearchResultInterface $searchResult): DocumentInterface
     {
+        echo "Crawling \"" . $searchResult->getSource() . "\"...\n";
+
         $crawlerResult = $this->crawlerFactory
             ->create()
             ->crawl($searchResult->getSource());
+
+        echo "Crawled \"" . $searchResult->getSource() . "\".\n";
+
+        echo "Parsing \"" . $searchResult->getSource() . "\"...\n";
 
         $pageContent = $this->parserFactory
             ->create($crawlerResult->getContentType())
@@ -67,6 +78,8 @@ class WebSearchLoader implements LoaderInterface
                 $crawlerResult->getContent(),
                 $crawlerResult->getContentType()
             ));
+
+        echo "Parsed \"" . $searchResult->getSource() . "\".\n";
 
         return new Document(
             $pageContent,

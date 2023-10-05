@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Thojou\LLMDocuments\Retriever;
 
+use Thojou\LLMDocuments\Splitter\SplitterInterface;
 use Thojou\LLMDocuments\Storage\VectorStore\VectorStoreInterface;
 
 class SimilarityRetriever implements RetrieverInterface
@@ -21,6 +22,7 @@ class SimilarityRetriever implements RetrieverInterface
         private readonly VectorStoreInterface $vectorStore,
         private readonly float $similarityThreshold = 0.75,
         private readonly int $limit = 4,
+        private readonly ?SplitterInterface $splitter = null
     ) {
     }
 
@@ -31,6 +33,10 @@ class SimilarityRetriever implements RetrieverInterface
 
     public function addDocuments(array $documents): void
     {
+        if($this->splitter) {
+            $documents = $this->splitter->splitDocuments($documents);
+        }
+
         $this->vectorStore->addDocuments($documents);
     }
 }

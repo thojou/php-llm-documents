@@ -67,7 +67,7 @@ class TempFile extends File
         parent::close();
 
         if($this->exists()) {
-            unlink($this->filename);
+           unlink($this->filename);
         }
     }
 }
