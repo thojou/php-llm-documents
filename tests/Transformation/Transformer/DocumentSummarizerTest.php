@@ -42,17 +42,19 @@ class DocumentSummarizerTest extends TestCase
                 ['role' => 'user', 'content' => 'This is a test document']
             ],
             'functions' => [
-                "name" => 'summarize',
-                "description" => 'Summarize a document in under 50 tokens.',
-                "parameters" => [
-                    'type' => 'object',
-                    'properties' => [
-                        "summary" => [
-                            "type" => "string",
-                            "description" => "The summary of the document."
-                        ]
-                    ],
-                    'required' => ['summary']
+                [
+                    "name" => 'summarize',
+                    "description" => 'Summarize a document in under 50 tokens.',
+                    "parameters" => [
+                        'type' => 'object',
+                        'properties' => [
+                            "summary" => [
+                                "type" => "string",
+                                "description" => "The summary of the document."
+                            ]
+                        ],
+                        'required' => ['summary']
+                    ]
                 ]
             ],
             'function_call' => ['name' => 'summarize']

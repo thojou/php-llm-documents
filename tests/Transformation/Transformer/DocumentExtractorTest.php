@@ -44,21 +44,23 @@ class DocumentExtractorTest extends TestCase
                 ['role' => 'user', 'content' => 'This is a test document']
             ],
             'functions' => [
-                "name" => 'extract_information',
-                "description" => 'Extract structured data from raw text document.',
-                "parameters" => [
-                    'type' => 'object',
-                    'properties' => [
-                        "prop1" => [
-                            "type" => "string",
-                            "description" => "A property."
+                [
+                    "name" => 'extract_information',
+                    "description" => 'Extract structured data from raw text document.',
+                    "parameters" => [
+                        'type' => 'object',
+                        'properties' => [
+                            "prop1" => [
+                                "type" => "string",
+                                "description" => "A property."
+                            ],
+                            "prop2" => [
+                                "type" => "string",
+                                "description" => "Another property."
+                            ]
                         ],
-                        "prop2" => [
-                            "type" => "string",
-                            "description" => "Another property."
-                        ]
-                    ],
-                    'required' => ['prop1', 'prop2']
+                        'required' => ['prop1', 'prop2']
+                    ]
                 ]
             ],
             'function_call' => ['name' => 'extract_information']

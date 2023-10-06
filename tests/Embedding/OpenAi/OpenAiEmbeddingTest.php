@@ -36,7 +36,7 @@ class OpenAiEmbeddingTest extends TestCase
             ->expects($this->once())
             ->method('embedding')
             ->with($this->equalTo([
-                'inputs' => $input,
+                'input' => $input,
                 'model' => 'gpt-3.5-turbo'
             ]))
             ->willReturn([
@@ -68,7 +68,7 @@ class OpenAiEmbeddingTest extends TestCase
             ->expects($this->once())
             ->method('embedding')
             ->with($this->equalTo([
-                'inputs' => $inputs,
+                'input' => $inputs,
                 'model' => 'gpt-3.5-turbo'
             ]))
             ->willReturn([
@@ -100,7 +100,7 @@ class OpenAiEmbeddingTest extends TestCase
             ->expects($this->once())
             ->method('embedding')
             ->with($this->equalTo([
-                'inputs' => $inputs,
+                'input' => $inputs,
                 'model' => 'gpt-3.5-turbo'
             ]))
             ->willReturn([]);

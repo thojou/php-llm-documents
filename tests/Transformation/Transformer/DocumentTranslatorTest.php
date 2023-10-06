@@ -42,17 +42,19 @@ class DocumentTranslatorTest extends TestCase
                 ['role' => 'user', 'content' => 'This is a test document']
             ],
             'functions' => [
-                "name" => 'translate',
-                "description" => 'Translate a document into en.',
-                "parameters" => [
-                    'type' => 'object',
-                    'properties' => [
-                        "translated_document" => [
-                            "type" => "string",
-                            "description" => "The document translated into en."
-                        ]
-                    ],
-                    'required' => ['translated_document']
+                [
+                    "name" => 'translate',
+                    "description" => 'Translate a document into en.',
+                    "parameters" => [
+                        'type' => 'object',
+                        'properties' => [
+                            "translated_document" => [
+                                "type" => "string",
+                                "description" => "The document translated into en."
+                            ]
+                        ],
+                        'required' => ['translated_document']
+                    ]
                 ]
             ],
             'function_call' => ['name' => 'translate']

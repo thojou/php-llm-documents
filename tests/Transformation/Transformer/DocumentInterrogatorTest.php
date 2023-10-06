@@ -43,31 +43,33 @@ class DocumentInterrogatorTest extends TestCase
                 ['role' => 'user', 'content' => 'This is a test document']
             ],
             'functions' => [
-                "name" => 'interrogate',
-                "description" => 'Convert a text document into a series of questions and answers',
-                "parameters" => [
-                    'type' => 'object',
-                    'properties' => [
-                        "questions_and_answers" => [
-                            "type" => "array",
-                            "description" => "The list of questions and answers",
-                            "items" => [
-                                "type" => "object",
-                                "properties" => [
-                                    'question' => [
-                                        'type' => 'string',
-                                        'description' => 'The question.'
+                [
+                    "name" => 'interrogate',
+                    "description" => 'Convert a text document into a series of questions and answers',
+                    "parameters" => [
+                        'type' => 'object',
+                        'properties' => [
+                            "questions_and_answers" => [
+                                "type" => "array",
+                                "description" => "The list of questions and answers",
+                                "items" => [
+                                    "type" => "object",
+                                    "properties" => [
+                                        'question' => [
+                                            'type' => 'string',
+                                            'description' => 'The question.'
+                                        ],
+                                        'answer' => [
+                                            'type' => 'string',
+                                            'description' => 'The answer.'
+                                        ]
                                     ],
-                                    'answer' => [
-                                        'type' => 'string',
-                                        'description' => 'The answer.'
-                                    ]
-                                ],
-                                "required" => ['question', 'answer']
-                            ]
+                                    "required" => ['question', 'answer']
+                                ]
+                            ],
                         ],
-                    ],
-                    'required' => ['questions_and_answers']
+                        'required' => ['questions_and_answers']
+                    ]
                 ]
             ],
             'function_call' => ['name' => 'interrogate']

@@ -42,17 +42,19 @@ class DocumentRefinerTest extends TestCase
                 ['role' => 'user', 'content' => 'This is a test document']
             ],
             'functions' => [
-                "name" => 'refine',
-                "description" => 'Remove all irrelevant information from a document.',
-                "parameters" => [
-                    'type' => 'object',
-                    'properties' => [
-                        "refined_document" => [
-                            "type" => "string",
-                            "description" => "The document with irrelevant information removed."
-                        ]
-                    ],
-                    'required' => ['refined_document']
+                [
+                    "name" => 'refine',
+                    "description" => 'Remove all irrelevant information from a document.',
+                    "parameters" => [
+                        'type' => 'object',
+                        'properties' => [
+                            "refined_document" => [
+                                "type" => "string",
+                                "description" => "The document with irrelevant information removed."
+                            ]
+                        ],
+                        'required' => ['refined_document']
+                    ]
                 ]
             ],
             'function_call' => ['name' => 'refine']
@@ -90,17 +92,19 @@ class DocumentRefinerTest extends TestCase
                 ['role' => 'user', 'content' => 'This is a test document']
             ],
             'functions' => [
-                "name" => 'refine',
-                "description" => 'Remove all information from a document that is not relevant to the following topics: -software -hardware.',
-                "parameters" => [
-                    'type' => 'object',
-                    'properties' => [
-                        "refined_document" => [
-                            "type" => "string",
-                            "description" => "The document with irrelevant information removed."
-                        ]
-                    ],
-                    'required' => ['refined_document']
+                [
+                    "name" => 'refine',
+                    "description" => 'Remove all information from a document that is not relevant to the following topics: -software -hardware.',
+                    "parameters" => [
+                        'type' => 'object',
+                        'properties' => [
+                            "refined_document" => [
+                                "type" => "string",
+                                "description" => "The document with irrelevant information removed."
+                            ]
+                        ],
+                        'required' => ['refined_document']
+                    ]
                 ]
             ],
             'function_call' => ['name' => 'refine']
