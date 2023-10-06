@@ -20,7 +20,7 @@ You can effortlessly install the **PHP LLM Documents** using the popular package
 
 
 ```bash
-composer require thojou/php-llm-documents:dev-master
+composer require thojou/llm-documents:dev-master
 ```
 
 
