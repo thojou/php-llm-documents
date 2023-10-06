@@ -1,7 +1,7 @@
 # PHP LLM Documents
 
 ![Static Badge](https://img.shields.io/badge/PHP_Version-%3E%3D8.1-blue)
-[![CI](https://github.com/thojou/php-doctran/actions/workflows/ci.yml/badge.svg)](https://github.com/thojou/php-llm-documents/actions/workflows/ci.yml)
+[![CI](https://github.com/thojou/php-llm-documents/actions/workflows/ci.yml/badge.svg)](https://github.com/thojou/php-llm-documents/actions/workflows/ci.yml)
 ![Coverage](https://img.shields.io/badge/coverage-100%25-green)
 [![License](https://img.shields.io/github/license/thojou/php-llm-documents)](LICENSE)
 
@@ -16,31 +16,22 @@ This library offers capabilities for web search, web scraping, document transfor
 
 You can effortlessly install the **PHP LLM Documents** using the popular package manager [composer](https://getcomposer.org/).
 
+> This project is currently under development. If installing with composer, please make sure to accept a minimum stability of `dev` in your `composer.json` file.
+
+
 ```bash
-composer require thojou/php-llm-documents
+composer require thojou/php-llm-documents:dev-master
 ```
+
+
 
 ## Usage
 
-> Add usage instructions here
-
-```php
-<?php
-
-require_once __DIR__ . '/vendor/autoload.php';
-
-// Add code here
-```
-
 For more practical examples, please refer to the [examples](examples) folder.
-
-## Limitations
-
-> Add limitations here
 
 ## Documentation
 
-> Add documentation here
+> Coming Soon
 
 ## License
 
