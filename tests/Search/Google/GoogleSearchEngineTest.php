@@ -49,4 +49,30 @@ class GoogleSearchEngineTest extends TestCase
         $this->assertInstanceOf(SearchResultInterface::class, $result[0]);
     }
 
+    public function testRestrictedSearch(): void
+    {
+        $cse = $this->createMock(CustomSearchAPI\Resource\CseSiterestrict::class);
+        $api = $this->createMock(CustomSearchAPI::class);
+        $search = $this->createMock(CustomSearchAPI\Search::class);
+        $searchResultItem = $this->createMock(CustomSearchAPI\Result::class);
+        $search
+            ->method('getItems')
+            ->willReturn([$searchResultItem]);
+        $cse
+            ->method('listCseSiterestrict')
+            ->willReturn($search);
+
+        $searchResultItem
+            ->method('getLink')
+            ->willReturn('https://www.example.com');
+
+        $api->cse_siterestrict = $cse;
+
+        $engine = new GoogleSearchEngine($api, "testId", true);
+        $result = $engine->search('Test', 1);
+
+        $this->assertCount(1, $result);
+        $this->assertInstanceOf(SearchResultInterface::class, $result[0]);
+    }
+
 }
