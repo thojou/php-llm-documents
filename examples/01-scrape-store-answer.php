@@ -1,5 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP LLM Documents.
+ *
+ * (c) Thomas Joußen <tjoussen91@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 use Google\Client;
 use Thojou\LLMDocuments\Crawler\Spatie\SpatieCrawlerConfig;
 use Thojou\LLMDocuments\Crawler\Spatie\SpatieCrawlerFactory;
@@ -41,7 +52,8 @@ $webSearchLoader = new WebSearchLoader(
             'application_name' => 'BrAin/1.0',
             'developer_key' => GOOGLE_DEVELOPER_KEY,
         ]),
-        SEARCH_ENGINE_ID
+        SEARCH_ENGINE_ID,
+        true
     ),
     // Use SpatieCrawler for WebCrawling
     new SpatieCrawlerFactory(
@@ -136,9 +148,3 @@ $response = $openAI->chat()->completion($messages);
 echo "User QUERY: $query\n";
 echo "RESPONSE:\n";
 echo $response['choices'][0]['message']['content'] . "\n";
-
-
-
-
-
-
