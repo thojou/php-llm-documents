@@ -22,17 +22,23 @@ class GoogleSearchEngine implements SearchEngineInterface
 {
     public function __construct(
         private readonly CustomSearchAPI $googleSearchApi,
-        private readonly string $searchEngineId
+        private readonly string $searchEngineId,
+        private readonly bool $restricted = false
     ) {
     }
 
     public function search(string $query, int $limit): array
     {
-        $result = $this->googleSearchApi->cse->listCse([
+        $request = [
             'cx' => $this->searchEngineId,
             'num' => $limit,
             'q' => $query,
-        ]);
+        ];
+
+        $result = match ($this->restricted) {
+            true => $this->googleSearchApi->cse_siterestrict->listCseSiterestrict($request),
+            default => $this->googleSearchApi->cse->listCse($request),
+        };
 
         return array_map(
             fn (CustomSearchAPI\Result $item, int|string $index) => new SearchResult(

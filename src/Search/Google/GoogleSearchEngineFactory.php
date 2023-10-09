@@ -22,7 +22,8 @@ class GoogleSearchEngineFactory implements SearchEngineFactoryInterface
 {
     public function __construct(
         private readonly Client $client,
-        private readonly string $searchEngineId
+        private readonly string $searchEngineId,
+        private readonly bool $restricted = false
     ) {
     }
 
@@ -30,7 +31,8 @@ class GoogleSearchEngineFactory implements SearchEngineFactoryInterface
     {
         return new GoogleSearchEngine(
             new CustomSearchAPI($this->client),
-            $this->searchEngineId
+            $this->searchEngineId,
+            $this->restricted
         );
     }
 }
